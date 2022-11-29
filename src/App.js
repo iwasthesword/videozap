@@ -86,6 +86,7 @@ function App() {
     if (files.length > 0) {
       setInputv(true);
       setVideoSrc(null);
+      setProg(null);
     }
     else {
       setInputv(null);
@@ -102,7 +103,7 @@ function App() {
       <br />
       <p>{message}</p>
       <br />
-      {prog && <p>{prog.toFixed(0)}%</p>}
+      {prog?<p>{prog.toFixed(0)}%</p>:null}
       <LogsContainer />
     </div>
   );
