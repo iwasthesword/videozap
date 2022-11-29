@@ -41,7 +41,7 @@ function App() {
     const { name } = files[0];
     const dvideo = await loadVideo(files[0]);
     const duration = dvideo.duration;
-    let TOTAL_TARGET = Math.floor((Kb_TARGET / duration) * 0.97);
+    let TOTAL_TARGET = Math.floor((Kb_TARGET / duration) * 0.95);
     let BR_AUDIO = Math.min(Math.floor(TOTAL_TARGET * (1 / 3)), 128);
     let BR_VIDEO = Math.floor(TOTAL_TARGET - BR_AUDIO);
     let audio = BR_AUDIO + "k";
@@ -91,7 +91,6 @@ function App() {
     else {
       setInputv(null);
     }
-    //console.log(files);
   }
   return (
     <div className="App">

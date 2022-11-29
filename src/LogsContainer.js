@@ -9,7 +9,11 @@ const LogsContainer = () => {
   useEffect(() => {
     Hook(
       window.console,
-      (log) => setLogs((currLogs) => [...currLogs, log]),
+      (log) => {
+        if (!log.data.includes("[info] use ffmpeg.wasm v0.9.8")) {
+          setLogs((currLogs) => [log, ...currLogs]);
+        }
+      },
       false
     );
     return () => Unhook(window.console);
@@ -18,6 +22,7 @@ const LogsContainer = () => {
   return (
     <>
       <button onClick={() => setShow(!show)}>Console</button>
+      <br/><br/>
       {show ? (
         <div
           style={{
