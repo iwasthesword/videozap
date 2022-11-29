@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import LogsContainer from "./LogsContainer"
 import { createFFmpeg, fetchFile } from "@ffmpeg/ffmpeg";
 import "./App.css";
 
@@ -45,10 +46,18 @@ function App() {
     let BR_VIDEO = Math.floor(TOTAL_TARGET - BR_AUDIO);
     let audio = BR_AUDIO + "k";
     let video = BR_VIDEO + "k";
-    console.log(BR_VIDEO, BR_AUDIO);
+    let scale = "";
+
+    if (dvideo.videoWidth >= dvideo.videoHeight) {
+      scale = "640:-1";
+    }
+    else {
+      scale = "-1:640";
+    }
 
     setMessage("Loading ffmpeg-core.js");
     await ffmpeg.load();
+    setVideoSrc(null);
     setMessage("Converting...");
     ffmpeg.FS("writeFile", name, await fetchFile(files[0]));
     await ffmpeg.run(
@@ -64,18 +73,19 @@ function App() {
       "-maxrate",
       video,
       "-vf",
-      "scale=640:360",
+      "scale="+scale,
       "convert.mp4"
     );
-    setMessage("Complete conversion. Right-click the video and choose 'Save video as...'.");
+    setMessage("Conversion completed. Right-click the video and choose 'Save video as...'.");
     const data = ffmpeg.FS("readFile", "convert.mp4");
     setVideoSrc(
       URL.createObjectURL(new Blob([data.buffer], { type: "video/mp4" }))
     );
   };
-  async function isThereFile({ target: { files } }) {
+  function isThereFile({ target: { files } }) {
     if (files.length > 0) {
       setInputv(true);
+      setVideoSrc(null);
     }
     else {
       setInputv(null);
@@ -85,12 +95,15 @@ function App() {
   return (
     <div className="App">
       <p />
+      <input type="file" id="uploader" ref={inputEl} onChange={isThereFile} disabled={prog > 0 && prog < 100}></input>
+      <button onClick={doTranscode} disabled={inputv==null || (prog > 0 && prog < 100)}>Convert</button>
+      <br />
       <video src={videoSrc} controls style={{display: videoSrc != null? "initial": "none"}}></video>
       <br />
-      <input type="file" id="uploader" ref={inputEl} onChange={isThereFile}></input>
-      <button onClick={doTranscode} disabled={inputv==null}>Convert</button>
       <p>{message}</p>
+      <br />
       {prog && <p>{prog.toFixed(0)}%</p>}
+      <LogsContainer />
     </div>
   );
 }
