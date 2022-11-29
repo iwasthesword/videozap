@@ -2,6 +2,7 @@
   "name": "react-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://iwasthesword.github.io/videozap",
   "dependencies": {
     "@ffmpeg/core": "^0.11.0",
     "@ffmpeg/ffmpeg": "^0.9.8",
@@ -14,6 +15,8 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
