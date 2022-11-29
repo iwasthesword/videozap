@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/videozap/static/css/main.8ab6f918.chunk.css",
+    "main.js": "/videozap/static/js/main.30d1eec4.chunk.js",
+    "main.js.map": "/videozap/static/js/main.30d1eec4.chunk.js.map",
+    "runtime-main.js": "/videozap/static/js/runtime-main.9ccf0311.js",
+    "runtime-main.js.map": "/videozap/static/js/runtime-main.9ccf0311.js.map",
+    "static/js/2.8975a5ea.chunk.js": "/videozap/static/js/2.8975a5ea.chunk.js",
+    "static/js/2.8975a5ea.chunk.js.map": "/videozap/static/js/2.8975a5ea.chunk.js.map",
+    "index.html": "/videozap/index.html",
+    "precache-manifest.cd3bbdc267d13c3a09ae7cb9ca9f8c62.js": "/videozap/precache-manifest.cd3bbdc267d13c3a09ae7cb9ca9f8c62.js",
+    "service-worker.js": "/videozap/service-worker.js",
+    "static/css/main.8ab6f918.chunk.css.map": "/videozap/static/css/main.8ab6f918.chunk.css.map",
+    "static/js/2.8975a5ea.chunk.js.LICENSE.txt": "/videozap/static/js/2.8975a5ea.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9ccf0311.js",
+    "static/js/2.8975a5ea.chunk.js",
+    "static/css/main.8ab6f918.chunk.css",
+    "static/js/main.30d1eec4.chunk.js"
+  ]
+}
