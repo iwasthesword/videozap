@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Console, Hook, Unhook } from "console-feed";
 
 const LogsContainer = () => {
-  const [show, setShow] = useState(false);
+  //const [show, setShow] = useState(true);
   const [logs, setLogs] = useState([]);
 
   // run once!
@@ -21,15 +21,14 @@ const LogsContainer = () => {
 
   return (
     <>
-      <button onClick={() => setShow(!show)}>Console</button>
-      <br/><br/>
-      {show ? (
+      {/*<button onClick={() => setShow(!show)}>Console</button>*/}
+      {/*show ? (*/
         <div
           style={{
             backgroundColor: "#242424",
-            maxHeight: "50vh",
-            minHeight: "50vh",
-            maxWidth: "800px",
+            maxHeight: "85vh",
+            minHeight: "85vh",
+            width: "100%",
             margin: "auto",
             overflowY: "scroll",
             textAlign: "start",
@@ -37,7 +36,7 @@ const LogsContainer = () => {
         >
           <Console logs={logs} variant="dark" />
         </div>
-      ) : null}
+      /*) : null*/}
     </>
   );
 };
