@@ -22,21 +22,21 @@ const LogsContainer = () => {
   return (
     <>
       {/*<button onClick={() => setShow(!show)}>Console</button>*/}
-      {/*show ? (*/
+      {
+        /*show ? (*/
         <div
+          className="bg-black w-100 text-start"
           style={{
-            backgroundColor: "#242424",
             maxHeight: "85vh",
             minHeight: "85vh",
-            width: "100%",
             margin: "auto",
             overflowY: "scroll",
-            textAlign: "start",
           }}
         >
-          <Console logs={logs} variant="dark" />
+          <Console logs={logs} variant="dark" styles={{LOG_COLOR: "var(--bs-primary)"}} />
         </div>
-      /*) : null*/}
+        /*) : null*/
+      }
     </>
   );
 };

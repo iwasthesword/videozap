@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import LogsContainer from "./LogsContainer";
 import { createFFmpeg, fetchFile } from "@ffmpeg/ffmpeg";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.scss";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -118,19 +118,19 @@ function App() {
                   disabled={prog > 0 && prog < 100}
                 ></input>
                 <Button
-                  variant="success"
+                  variant="primary"
                   className="w-100"
                   onClick={doTranscode}
                   disabled={inputv == null || (prog > 0 && prog < 100)}
                 >
                   Convert
                 </Button>
-                <Card className="my-3 bg-dark text-light">
+                <Card className="my-3 bg-black text-primary font-monospace">
                   <Card.Body>{message}</Card.Body>
                 </Card>
                 <ProgressBar
                   className="mb-3"
-                  variant="success"
+                  variant="primary"
                   animated
                   now={prog ? prog : 0}
                   label={`${prog ? prog.toFixed(0) : 0}%`}
