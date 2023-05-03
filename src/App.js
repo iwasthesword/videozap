@@ -59,9 +59,9 @@ function App() {
     let scale = "";
 
     if (dvideo.videoWidth >= dvideo.videoHeight) {
-      scale = "640:-1";
+      scale = "640:trunc(ow/a/2)*2";
     } else {
-      scale = "-1:640";
+      scale = "trunc(oh*a/2)*2:640";
     }
 
     setMessage("Loading ffmpeg-core.js");
